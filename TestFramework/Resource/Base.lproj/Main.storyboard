@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestFramework" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ew9-ye-VJw">
+                                <rect key="frame" x="10" y="44" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="e2J-dT-u67"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="efe-pZ-Xcn">
+                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uXs-29-l3g">
+                                <rect key="frame" x="172" y="443" width="70" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="7UA-t4-s7e"/>
+                                    <constraint firstAttribute="width" secondItem="uXs-29-l3g" secondAttribute="height" multiplier="1:1" constant="50" id="kUP-kd-Com"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uXs-29-l3g" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="3RZ-dG-kyf"/>
+                            <constraint firstItem="efe-pZ-Xcn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ofk-Qk-Maw"/>
+                            <constraint firstItem="efe-pZ-Xcn" firstAttribute="top" secondItem="ew9-ye-VJw" secondAttribute="bottom" id="Std-T4-gHG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="efe-pZ-Xcn" secondAttribute="bottom" id="XpW-7m-SId"/>
+                            <constraint firstItem="ew9-ye-VJw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ZBR-Xs-p9A"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="efe-pZ-Xcn" secondAttribute="trailing" id="dVr-ri-Glp"/>
+                            <constraint firstItem="uXs-29-l3g" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rEw-dR-3dM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ew9-ye-VJw" secondAttribute="trailing" constant="10" id="wXR-TE-tJU"/>
+                            <constraint firstItem="ew9-ye-VJw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="whn-9T-58B"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="indicator" destination="uXs-29-l3g" id="m6l-bp-azo"/>
+                        <outlet property="searchTextField" destination="ew9-ye-VJw" id="K9U-bM-4MW"/>
+                        <outlet property="tableView" destination="efe-pZ-Xcn" id="1yV-Et-efO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="106"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
