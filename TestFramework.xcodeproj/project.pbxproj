@@ -17,7 +17,7 @@
 		9E6A96C6275A06A30073E2EE /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E6A96C5275A06A30073E2EE /* ErrorView.xib */; };
 		9E6A96C9275A06BC0073E2EE /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6A96C8275A06BC0073E2EE /* ErrorView.swift */; };
 		9E817203275A0D1400D9D67C /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E817202275A0D1400D9D67C /* BaseTableViewCell.swift */; };
-		9E817205275A106D00D9D67C /* Observable + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E817204275A106D00D9D67C /* Observable + Extension.swift */; };
+		9E817205275A106D00D9D67C /* Extension + Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E817204275A106D00D9D67C /* Extension + Observable.swift */; };
 		9E83D83B27562DC5005F6084 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E83D83A27562DC5005F6084 /* ViewModel.swift */; };
 		9E83D83D27563706005F6084 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E83D83C27563706005F6084 /* UseCase.swift */; };
 		9E924A952754D69400BFCCA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E924A942754D69400BFCCA5 /* AppDelegate.swift */; };
@@ -44,7 +44,7 @@
 		9E6A96C5275A06A30073E2EE /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		9E6A96C8275A06BC0073E2EE /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		9E817202275A0D1400D9D67C /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		9E817204275A106D00D9D67C /* Observable + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable + Extension.swift"; sourceTree = "<group>"; };
+		9E817204275A106D00D9D67C /* Extension + Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Observable.swift"; sourceTree = "<group>"; };
 		9E83D83A27562DC5005F6084 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		9E83D83C27563706005F6084 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		9E924A912754D69400BFCCA5 /* TestFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +78,7 @@
 			children = (
 				9E6A96B82759F8250073E2EE /* Extension + UIViewController.swift */,
 				9E6A96B62759F81F0073E2EE /* Extension + UITableView.swift */,
-				9E817204275A106D00D9D67C /* Observable + Extension.swift */,
+				9E817204275A106D00D9D67C /* Extension + Observable.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 				9E6A96B92759F8250073E2EE /* Extension + UIViewController.swift in Sources */,
 				9E83D83D27563706005F6084 /* UseCase.swift in Sources */,
 				9EFBE0F72757683300C2DB6E /* PokemonTableViewCell.swift in Sources */,
-				9E817205275A106D00D9D67C /* Observable + Extension.swift in Sources */,
+				9E817205275A106D00D9D67C /* Extension + Observable.swift in Sources */,
 				9E6A96B72759F81F0073E2EE /* Extension + UITableView.swift in Sources */,
 				9EFBE101275771EE00C2DB6E /* PokemonDetail.swift in Sources */,
 				9E01FE2227565014008F37D5 /* PokemonModel.swift in Sources */,
