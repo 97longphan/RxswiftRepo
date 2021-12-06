@@ -1,35 +1,72 @@
 import UIKit
 import RxSwift
 import RxCocoa
-let a = PublishSubject<String>()
-let b = PublishSubject<String>()
+let plS = PublishSubject<String>()
+let plR = PublishRelay<String>()
 
 
-//let c = Driver.combineLatest(a, b)
-//    .map { a, b -> String in
-//        return a.appending(b)
-//    }.drive(onNext: {
-//        print($0)
-//    })
-
-let aa = Observable.combineLatest(a,b)
-//    .map({ pbs, b -> String in
-//        return pbs.appending("hello").appending(b)
-//    })
-    .subscribe(onNext: {
-        print($0)
-    })
-
-//let ab = Observable.merge([a, b])
-//    .subscribe(onNext: {
-//        print($0)
-//    })
+let bhS = BehaviorSubject<String>(value: "a")
+let bhR = BehaviorRelay<String>(value: "a")
 
 
 
-a.onNext("a onnext")
+let bag = DisposeBag()
 
-b.onNext("b onnext")
+plS.subscribe(onNext: {
+    print("first\($0)")
+}).disposed(by: bag)
+
+plS.onNext("1")
+
+plS.onNext("2")
+
+plS.subscribe(onNext: {
+    print("second\($0)")
+}).disposed(by: bag)
+
+plS.onNext("3")
+//
+////------------------------
+bhS.subscribe(onNext: {
+    print("first\($0)")
+}).disposed(by: bag)
+
+
+bhS.onNext("1")
+
+bhS.onNext("2")
+
+bhS.subscribe(onNext: {
+    print("second\($0)")
+}).disposed(by: bag)
+
+bhS.onNext("3")
+
+bhS.onNext("4")
+
+
+
+
+//plR.subscribe(onNext: {
+//    print("first\($0)")
+//}).disposed(by: bag)
+//
+//
+//
+//plR.accept("1")
+//
+//plR.accept("2")
+//
+//plR.subscribe(onNext: {
+//    print("second\($0)")
+//}).disposed(by: bag)
+//
+//plR.accept("3")
+//
+//bhS.subscribe
+
+
+
 
 
 
