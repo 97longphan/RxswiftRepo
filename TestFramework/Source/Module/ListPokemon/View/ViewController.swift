@@ -12,6 +12,7 @@ class ViewController: UIViewController, Resolving {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     private let viewModel: ViewModel = ViewModel(useCase: UseCase())
+//    private let viewModel: ViewModelV2 = ViewModelV2(useCase: UseCase())
     private let loadMoreTrigger = PublishSubject<Void>()
     private let pullToRefreshTrigger = PublishSubject<Void>()
     private let retryTrigger = PublishSubject<Void>()
@@ -75,6 +76,12 @@ class ViewController: UIViewController, Resolving {
     }
     
     private func bindViewModel() {
+//        let input = ViewModelV2.Input(didLoadTrigger: rx.viewWillAppear.take(1),
+//                                      searchTrigger: searchTextField.rx.text.orEmpty.asDriver(),
+//                                      loadMoreTrigger: loadMoreTrigger,
+//                                      pullToRefreshTrigger: pullToRefreshTrigger,
+//                                      retryTrigger: retryTrigger)
+        
         let input = ViewModel.Input(didLoadTrigger: rx.viewWillAppear.take(1),
                                     searchTrigger: searchTextField.rx.text.orEmpty.asDriver(),
                                     loadMoreTrigger: loadMoreTrigger,

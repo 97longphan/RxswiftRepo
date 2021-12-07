@@ -14,6 +14,7 @@ target 'TestFramework' do
   pod 'Nuke'
   pod 'SnapKit', '~> 5.0.0'
   pod 'Resolver'
+  pod 'netfox'
   # Pods for TestFramework
 
 end

@@ -40,17 +40,13 @@ class ViewModel: ViewModelType {
         var loadMoreUrl: String?
         
         input.retryTrigger
+            .merge(with: input.loadMoreTrigger)
             .map { [unowned self] in (numberOfItem, loadMoreUrl) }
             .bind(to: getListPokemonAction.inputs)
             .disposed(by: disposeBag)
         
         input.didLoadTrigger
             .map {[unowned self] in (numberOfItem, nil) }
-            .bind(to: getListPokemonAction.inputs)
-            .disposed(by: disposeBag)
-        
-        input.loadMoreTrigger
-            .map { [unowned self] in (numberOfItem, loadMoreUrl) }
             .bind(to: getListPokemonAction.inputs)
             .disposed(by: disposeBag)
         

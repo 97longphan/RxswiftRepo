@@ -6,7 +6,11 @@ import WebKit
 import Alamofire
 class UseCase {
     func getListPokemon(limit: Int, loadMore: String?) -> Single<PokemonListModel> {
-        let request = ApiRouter.getListPokemon(limit: limit, loadMore: loadMore).urlRequest
+        var loadMoreString: String? = nil
+        if loadMore != "" {
+            loadMoreString = loadMore
+        }
+        let request = ApiRouter.getListPokemon(limit: limit, loadMore: loadMoreString).urlRequest
         
         return URLSession.shared.rx.data(request: request!)
             .observeOn(MainScheduler.instance)
@@ -33,7 +37,7 @@ enum ApiRouter: URLRequestConvertible {
         case .getDetailPokemon(let id):
             return id
         case .getListPokemon(_ , let loadMore):
-            if let loadMore = loadMore {
+            if let loadMore = loadMore, loadMore != "" {
                 return loadMore
             } else {
                 return "https://pokeapi.co/api/v2/"
@@ -44,7 +48,7 @@ enum ApiRouter: URLRequestConvertible {
     private var path: String? {
         switch self {
         case .getListPokemon(_ , let loadMore):
-            if let _ = loadMore {
+            if let loadMore = loadMore, loadMore != "" {
                 return nil
             } else {
                 return "pokemon"
@@ -65,7 +69,7 @@ enum ApiRouter: URLRequestConvertible {
     private var parameters: Parameters? {
         switch self {
         case .getListPokemon(let limit, let loadMore):
-            if let _ = loadMore {
+            if let loadMore = loadMore, loadMore != "" {
                 return nil
             } else {
                 return ["limit": limit]

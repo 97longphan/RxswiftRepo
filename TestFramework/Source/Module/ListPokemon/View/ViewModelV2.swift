@@ -35,16 +35,42 @@ class ViewModelV2: ViewModelType {
         return pokemonListModelNew
     }
     
+    private func transformToGetDetail (_ input: [PokemonModel], listPokemonModel: [PokemonModel]) -> Observable<[PokemonModel]> {
+        let test = input
+        .map { $0.url }
+        
+        let test2 = Observable.from(test)
+        .flatMap { [unowned self] in
+            useCase.getDetailPokemon(id: $0) }
+        .map { [unowned self] in
+            mergedObjectData(listPokemonModel, $0)}
+        
+        return test2
+    }
+    
     func transform(input: Input) -> Output {
         var listPokemonModel: [PokemonModel] = []
-        var loadMoreUrl: String?
-        let listPokemon = input.didLoadTrigger
-            .map {[unowned self] in numberOfItem}
-            .flatMapLatest { [unowned self] in
-                useCase.getListPokemon(limit: $0, loadMore: nil) }
+        var loadMoreUrl: String = ""
+        
+        let firstLoadData = input.didLoadTrigger
+            .merge(with: input.pullToRefreshTrigger)
             .do(onNext: {
-                loadMoreUrl = $0.next
-                listPokemonModel = $0.results })
+                listPokemonModel.removeAll()
+                self.pokemonListModelNew.removeAll()
+            })
+                .map { [unowned self] in (numberOfItem, "") }
+                
+        let loadMoreData = input.loadMoreTrigger
+                .map { [unowned self] in (numberOfItem, loadMoreUrl) }
+                
+
+        let listPokemon = firstLoadData.merge(with: loadMoreData)
+            .flatMapLatest { [unowned self] in
+                useCase.getListPokemon(limit: $0.0, loadMore: $0.1) }
+            .do(onNext: {
+                loadMoreUrl = $0.next ?? ""
+                listPokemonModel.append(contentsOf: $0.results)
+            })
             .map { $0.results }
             .map {
                 $0.map { $0.url } }
@@ -63,104 +89,10 @@ class ViewModelV2: ViewModelType {
                 return listPokemonModel.filter { ($0.name).lowercased().contains(searchKey) }
             }
         
-        let loadmore = input.loadMoreTrigger
-            .map { [unowned self] in (numberOfItem, loadMoreUrl) }
-            .flatMapLatest { [unowned self] in
-                useCase.getListPokemon(limit: $0.0, loadMore: $0.1)
-            }.do(onNext: {
-                loadMoreUrl = $0.next
-                listPokemonModel.append(contentsOf: $0.results)
-                
-            })
-            .map { $0.results }
-            .map {
-                $0.map { $0.url } }
-            .flatMapLatest {
-                Observable.from($0) }
-            .flatMap{ [unowned self] in
-                useCase.getDetailPokemon(id: $0) }
-            .map { [unowned self] in
-                mergedObjectData(listPokemonModel, $0)}
-        
-        let pullToRefresh = input.pullToRefreshTrigger
-            .map {[unowned self] in numberOfItem}
-            .flatMapLatest { [unowned self] in
-                useCase.getListPokemon(limit: $0, loadMore: nil) }
-            .do(onNext: { [unowned self] in
-                listPokemonModel.removeAll()
-                pokemonListModelNew.removeAll()
-                loadMoreUrl = $0.next
-                listPokemonModel = $0.results })
-            .map { $0.results }
-            .map {
-                $0.map { $0.url } }
-            .flatMapLatest {
-                Observable.from($0) }
-            .flatMap{ [unowned self] in
-                useCase.getDetailPokemon(id: $0) }
-            .map { [unowned self] in
-                mergedObjectData(listPokemonModel, $0)}
         
         
         
-        
-//        input.retryTrigger
-//            .map { [unowned self] in (numberOfItem, loadMoreUrl) }
-//            .bind(to: getListPokemonAction.inputs)
-//            .disposed(by: disposeBag)
-//
-//        input.didLoadTrigger
-//            .map {[unowned self] in (numberOfItem, nil) }
-//            .bind(to: getListPokemonAction.inputs)
-//            .disposed(by: disposeBag)
-//
-//        input.loadMoreTrigger
-//            .map { [unowned self] in (numberOfItem, loadMoreUrl) }
-//            .bind(to: getListPokemonAction.inputs)
-//            .disposed(by: disposeBag)
-//
-//        input.pullToRefreshTrigger
-//            .do(onNext: { [unowned self] in
-//                listPokemonModel.removeAll()
-//                pokemonListModelNew.removeAll()
-//            })
-//                .map {[unowned self] in (numberOfItem, nil)}
-//                .bind(to: getListPokemonAction.inputs)
-//                .disposed(by: disposeBag)
-//
-//
-//        let listPokemon = getListPokemonAction.elements
-//            .do(onNext: {
-//                loadMoreUrl = $0.next
-//                if listPokemonModel.count == 0 {
-//                    listPokemonModel = $0.results
-//                } else {
-//                    listPokemonModel.append(contentsOf: $0.results)
-//                }})
-//                .map {
-//                    $0.results }
-//                .map {
-//                    $0.map { $0.url } }
-//                .flatMapLatest {
-//                    Observable.from($0) }
-//                .flatMap{ [unowned self] in
-//                    useCase.getDetailPokemon(id: $0) }
-//                .map { [unowned self] in
-//                    mergedObjectData(listPokemonModel, $0)}
-//
-//        let search = input.searchTrigger
-//            .map{searchKey -> [PokemonModel] in
-//                if searchKey.isEmpty || searchKey == "" {
-//                    return listPokemonModel
-//                }
-//                return listPokemonModel.filter { ($0.name).lowercased().contains(searchKey) }
-//            }
-//
-//        let isLoading = getListPokemonAction.executing
-//
-//        let error = getListPokemonAction.underlyingError
-        
-        return Output(loadListPokemon: Driver.merge(listPokemon.asDriver(onErrorJustReturn: []), search, loadmore.asDriver(onErrorJustReturn: []), pullToRefresh.asDriver(onErrorJustReturn: [])))
+        return Output(loadListPokemon: Driver.merge(listPokemon.asDriver(onErrorJustReturn: []), search))
     }
     
     
@@ -171,7 +103,7 @@ extension ViewModelV2 {
         let searchTrigger: Driver<String>
         let loadMoreTrigger: Observable<Void>
         let pullToRefreshTrigger: Observable<Void>
-//        let retryTrigger: Observable<Void>
+        let retryTrigger: Observable<Void>
     }
     
     struct Output {
