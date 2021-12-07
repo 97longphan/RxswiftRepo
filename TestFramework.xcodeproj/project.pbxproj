@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2EC73E236E7048758428FBD0 /* Pods_TestFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D58BC511871BCEAAC7BB34F /* Pods_TestFramework.framework */; };
 		9E01FE2227565014008F37D5 /* PokemonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E01FE2127565014008F37D5 /* PokemonModel.swift */; };
+		9E05DCBC275F0E8900D0544F /* AppDelegate + Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05DCBB275F0E8900D0544F /* AppDelegate + Injection.swift */; };
+		9E05DCBE275F0FE800D0544F /* TestInjectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05DCBD275F0FE800D0544F /* TestInjectionModel.swift */; };
 		9E6A96B72759F81F0073E2EE /* Extension + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6A96B62759F81F0073E2EE /* Extension + UITableView.swift */; };
 		9E6A96B92759F8250073E2EE /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6A96B82759F8250073E2EE /* Extension + UIViewController.swift */; };
 		9E6A96BB2759F8390073E2EE /* BaseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6A96BA2759F8380073E2EE /* BaseUIView.swift */; };
@@ -36,6 +38,8 @@
 		1640EC03E98FF6D156C76CB1 /* Pods-TestFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestFramework.release.xcconfig"; path = "Target Support Files/Pods-TestFramework/Pods-TestFramework.release.xcconfig"; sourceTree = "<group>"; };
 		4D58BC511871BCEAAC7BB34F /* Pods_TestFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E01FE2127565014008F37D5 /* PokemonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonModel.swift; sourceTree = "<group>"; };
+		9E05DCBB275F0E8900D0544F /* AppDelegate + Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate + Injection.swift"; sourceTree = "<group>"; };
+		9E05DCBD275F0FE800D0544F /* TestInjectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInjectionModel.swift; sourceTree = "<group>"; };
 		9E2C7C012758C7B2001B282B /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9E6A96B62759F81F0073E2EE /* Extension + UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + UITableView.swift"; sourceTree = "<group>"; };
 		9E6A96B82759F8250073E2EE /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 				9E924A9D2754D69600BFCCA5 /* Assets.xcassets */,
 				9E924A9F2754D69600BFCCA5 /* LaunchScreen.storyboard */,
 				9E924AA22754D69600BFCCA5 /* Info.plist */,
+				9E05DCBB275F0E8900D0544F /* AppDelegate + Injection.swift */,
 			);
 			path = TestFramework;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 			children = (
 				9E01FE2127565014008F37D5 /* PokemonModel.swift */,
 				9EFBE100275771EE00C2DB6E /* PokemonDetail.swift */,
+				9E05DCBD275F0FE800D0544F /* TestInjectionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -356,6 +362,8 @@
 				9E01FE2227565014008F37D5 /* PokemonModel.swift in Sources */,
 				9E924A992754D69400BFCCA5 /* ViewController.swift in Sources */,
 				9E9F3F1B275DB64600AC1E5E /* ViewModelV2.swift in Sources */,
+				9E05DCBE275F0FE800D0544F /* TestInjectionModel.swift in Sources */,
+				9E05DCBC275F0E8900D0544F /* AppDelegate + Injection.swift in Sources */,
 				9E924A952754D69400BFCCA5 /* AppDelegate.swift in Sources */,
 				9E6A96BB2759F8390073E2EE /* BaseUIView.swift in Sources */,
 				9E83D83B27562DC5005F6084 /* ViewModel.swift in Sources */,

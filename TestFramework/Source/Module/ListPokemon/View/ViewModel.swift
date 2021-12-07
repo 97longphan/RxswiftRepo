@@ -11,7 +11,7 @@ class ViewModel: ViewModelType {
     private let useCase: UseCase
     private let listPokemon = BehaviorRelay<PokemonListModel?> (value: nil)
     private var pokemonListModelNew: [PokemonModel] = []
-    private let numberOfItem = 1000
+    private let numberOfItem = 10
     lazy var getListPokemonAction: Action<(limit: Int, loadMore: String?), PokemonListModel> = {
         Action<(limit: Int, loadMore: String?), PokemonListModel> { [unowned self] in
             useCase.getListPokemon(limit: $0, loadMore: $1).asObservable()

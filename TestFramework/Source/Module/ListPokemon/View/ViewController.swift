@@ -5,8 +5,9 @@ import RxSwift
 import ESPullToRefresh
 import Nuke
 import RxGesture
+import Resolver
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, Resolving {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
@@ -16,6 +17,7 @@ class ViewController: UIViewController {
     private let retryTrigger = PublishSubject<Void>()
     private let disposebag = DisposeBag()
     private var errorView: ErrorView = ErrorView()
+    @Injected var testInjectionModel: TestInjectionModel
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,8 @@ class ViewController: UIViewController {
         self.setupView()
         self.setupTableView()
         self.setupErrorView()
+        print("test resolver")
+        print(testInjectionModel.age)
     }
     
     private func setupTableView() {

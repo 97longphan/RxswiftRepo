@@ -13,6 +13,7 @@ target 'TestFramework' do
   pod 'Alamofire', '~> 5.4'
   pod 'Nuke'
   pod 'SnapKit', '~> 5.0.0'
+  pod 'Resolver'
   # Pods for TestFramework
 
 end
