@@ -11,7 +11,7 @@ class ViewController: UIViewController, Resolving {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-    private let viewModel: ViewModel = ViewModel(useCase: UseCase())
+    private let viewModel: ViewModel = ViewModel(useCase: DefaultPokemonUseCase())
 //    private let viewModel: ViewModelV2 = ViewModelV2(useCase: UseCase())
     private let loadMoreTrigger = PublishSubject<Void>()
     private let pullToRefreshTrigger = PublishSubject<Void>()

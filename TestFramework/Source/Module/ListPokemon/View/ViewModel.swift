@@ -3,12 +3,12 @@ import Action
 import RxSwift
 
 class ViewModel: ViewModelType {
-    init(useCase: UseCase) {
+    init(useCase: PokemonUseCase) {
         self.useCase = useCase
     }
     
     private var disposeBag = DisposeBag()
-    private let useCase: UseCase
+    private let useCase: PokemonUseCase
     private let listPokemon = BehaviorRelay<PokemonListModel?> (value: nil)
     private var pokemonListModelNew: [PokemonModel] = []
     private let numberOfItem = 10

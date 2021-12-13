@@ -4,7 +4,12 @@ import RxSwift
 import RxCocoa
 import WebKit
 import Alamofire
-class UseCase {
+protocol PokemonUseCase {
+    func getListPokemon(limit: Int, loadMore: String?) -> Single<PokemonListModel>
+    func getDetailPokemon(id: String) -> Single<PokemonDetailModel>
+}
+
+class DefaultPokemonUseCase: PokemonUseCase {
     func getListPokemon(limit: Int, loadMore: String?) -> Single<PokemonListModel> {
         var loadMoreString: String? = nil
         if loadMore != "" {

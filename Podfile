@@ -9,12 +9,17 @@ target 'TestFramework' do
   pod 'RxCocoa'
   pod 'RxGesture'
   pod 'Action'
-  pod 'RxSwiftExt', '~> 5'
+  pod 'RxSwiftExt'
   pod 'Alamofire', '~> 5.4'
   pod 'Nuke'
   pod 'SnapKit', '~> 5.0.0'
   pod 'Resolver'
   pod 'netfox'
-  # Pods for TestFramework
-
+  # Pods for TestFrameworkTests
+  target 'TestFrameworkTests' do
+    pod 'RxBlocking'
+    pod 'RxTest'
+  end
 end
+
+
