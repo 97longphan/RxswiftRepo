@@ -11,6 +11,10 @@
 		9E01FE2227565014008F37D5 /* PokemonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E01FE2127565014008F37D5 /* PokemonModel.swift */; };
 		9E05DCBC275F0E8900D0544F /* AppDelegate + Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05DCBB275F0E8900D0544F /* AppDelegate + Injection.swift */; };
 		9E05DCBE275F0FE800D0544F /* TestInjectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05DCBD275F0FE800D0544F /* TestInjectionModel.swift */; };
+		9E63F1FF2760ACE800FF2CFF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63F1FE2760ACE800FF2CFF /* HomeViewController.swift */; };
+		9E63F2012760ACFA00FF2CFF /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E63F2002760ACFA00FF2CFF /* Home.storyboard */; };
+		9E63F2042760AF8B00FF2CFF /* DependencyInjectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63F2032760AF8B00FF2CFF /* DependencyInjectionViewController.swift */; };
+		9E63F2062760AF9800FF2CFF /* DependencyInjection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E63F2052760AF9800FF2CFF /* DependencyInjection.storyboard */; };
 		9E6A96B72759F81F0073E2EE /* Extension + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6A96B62759F81F0073E2EE /* Extension + UITableView.swift */; };
 		9E6A96B92759F8250073E2EE /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6A96B82759F8250073E2EE /* Extension + UIViewController.swift */; };
 		9E6A96BB2759F8390073E2EE /* BaseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6A96BA2759F8380073E2EE /* BaseUIView.swift */; };
@@ -41,6 +45,10 @@
 		9E05DCBB275F0E8900D0544F /* AppDelegate + Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate + Injection.swift"; sourceTree = "<group>"; };
 		9E05DCBD275F0FE800D0544F /* TestInjectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInjectionModel.swift; sourceTree = "<group>"; };
 		9E2C7C012758C7B2001B282B /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		9E63F1FE2760ACE800FF2CFF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9E63F2002760ACFA00FF2CFF /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		9E63F2032760AF8B00FF2CFF /* DependencyInjectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionViewController.swift; sourceTree = "<group>"; };
+		9E63F2052760AF9800FF2CFF /* DependencyInjection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DependencyInjection.storyboard; sourceTree = "<group>"; };
 		9E6A96B62759F81F0073E2EE /* Extension + UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + UITableView.swift"; sourceTree = "<group>"; };
 		9E6A96B82759F8250073E2EE /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
 		9E6A96BA2759F8380073E2EE /* BaseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIView.swift; sourceTree = "<group>"; };
@@ -79,6 +87,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E63F1F92760AC0400FF2CFF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9E63F1FE2760ACE800FF2CFF /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9E63F2022760AF7100FF2CFF /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				9E63F2032760AF8B00FF2CFF /* DependencyInjectionViewController.swift */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
 		9E6A96B42759F7F40073E2EE /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +134,8 @@
 		9E6A96C12759F9D90073E2EE /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				9E63F2022760AF7100FF2CFF /* DependencyInjection */,
+				9E63F1F92760AC0400FF2CFF /* Home */,
 				9E6A96C7275A06AF0073E2EE /* ErrorView */,
 				9E6A96C22759F9E50073E2EE /* ListPokemon */,
 			);
@@ -205,6 +231,8 @@
 			children = (
 				9E924A9A2754D69400BFCCA5 /* Main.storyboard */,
 				9E6A96C5275A06A30073E2EE /* ErrorView.xib */,
+				9E63F2002760ACFA00FF2CFF /* Home.storyboard */,
+				9E63F2052760AF9800FF2CFF /* DependencyInjection.storyboard */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -298,8 +326,10 @@
 				9E924AA12754D69600BFCCA5 /* LaunchScreen.storyboard in Resources */,
 				9EFBE0F82757683300C2DB6E /* PokemonTableViewCell.xib in Resources */,
 				9E924A9E2754D69600BFCCA5 /* Assets.xcassets in Resources */,
+				9E63F2012760ACFA00FF2CFF /* Home.storyboard in Resources */,
 				9E924A9C2754D69400BFCCA5 /* Main.storyboard in Resources */,
 				9E6A96C6275A06A30073E2EE /* ErrorView.xib in Resources */,
+				9E63F2062760AF9800FF2CFF /* DependencyInjection.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +389,7 @@
 				9E817205275A106D00D9D67C /* Extension + Observable.swift in Sources */,
 				9E6A96B72759F81F0073E2EE /* Extension + UITableView.swift in Sources */,
 				9EFBE101275771EE00C2DB6E /* PokemonDetail.swift in Sources */,
+				9E63F2042760AF8B00FF2CFF /* DependencyInjectionViewController.swift in Sources */,
 				9E01FE2227565014008F37D5 /* PokemonModel.swift in Sources */,
 				9E924A992754D69400BFCCA5 /* ViewController.swift in Sources */,
 				9E9F3F1B275DB64600AC1E5E /* ViewModelV2.swift in Sources */,
@@ -367,6 +398,7 @@
 				9E924A952754D69400BFCCA5 /* AppDelegate.swift in Sources */,
 				9E6A96BB2759F8390073E2EE /* BaseUIView.swift in Sources */,
 				9E83D83B27562DC5005F6084 /* ViewModel.swift in Sources */,
+				9E63F1FF2760ACE800FF2CFF /* HomeViewController.swift in Sources */,
 				9E6A96C9275A06BC0073E2EE /* ErrorView.swift in Sources */,
 				9E924A972754D69400BFCCA5 /* SceneDelegate.swift in Sources */,
 				9E817203275A0D1400D9D67C /* BaseTableViewCell.swift in Sources */,
@@ -524,7 +556,7 @@
 				INFOPLIST_FILE = TestFramework/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -552,7 +584,7 @@
 				INFOPLIST_FILE = TestFramework/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
