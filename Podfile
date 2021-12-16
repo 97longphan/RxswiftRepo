@@ -2,8 +2,10 @@
 # platform :ios, '9.0'
 
 target 'TestFramework' do
-  # Comment the next line if you don't want to use dynamic frameworks
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
+
+  # Pods for TestFramework
   pod 'ESPullToRefresh'
   pod 'RxSwift'
   pod 'RxCocoa'
@@ -15,11 +17,11 @@ target 'TestFramework' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'Resolver'
   pod 'netfox'
-  # Pods for TestFrameworkTests
   target 'TestFrameworkTests' do
-    pod 'RxBlocking'
-    pod 'RxTest'
+    inherit! :search_paths
+    # Pods for testing
+  pod 'RxBlocking'
+  pod 'RxTest'
   end
+
 end
-
-
