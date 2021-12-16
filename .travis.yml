@@ -4,4 +4,4 @@ xcode_workspace: TestFramework.xcworkspace
 xcode_scheme: TestFramework
 xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone X
 before_install:
-  - pod update
+  - pod install
